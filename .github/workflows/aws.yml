@@ -4,7 +4,7 @@ on:
     branches:
       - main
 env:
-  AWS_REGION: us-east-2
+  AWS_REGION: ap-south-1
   ECS_CLUSTER: app_cluster
   CONTAINER_NAME: app
   ECS_SERVICE: app_service
@@ -22,9 +22,9 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ""
-          aws-secret-access-key: ""
-          aws-region: ""
+          aws-access-key-id: "AKIAYZ3EUL7IP46SOYUR"
+          aws-secret-access-key: "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"
+          aws-region: ${{ env.AWS_REGION }}
 
       - name: Login to Amazon ECR
         id: login-ecr
@@ -33,7 +33,7 @@ jobs:
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
         env:
-          ECR_REGISTRY: "***.dkr.ecr.us-east-2.amazonaws.com"
+          ECR_REGISTRY: "605264568272.dkr.ecr.ap-south-1.amazonaws.com"
           ECR_REPOSITORY: "app_repo"
           IMAGE_TAG: latest
         run: |
